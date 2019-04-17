@@ -1,5 +1,5 @@
 {
-  "name": "nrqa-workshop",
+  "name": "qa-workshop-1",
   "version": "1.0.0",
   "description": "This codebase contains example code for use in demonstrations for the qa workshops being undertaken.",
   "main": "index.js",
@@ -7,7 +7,8 @@
 	"index.js"
   ],
   "scripts": {
-    "main": "node ./index"
+	"start": "node ./index.js",
+    "main": "node ./index.js"
   },
   "repository": {
     "type": "git",
