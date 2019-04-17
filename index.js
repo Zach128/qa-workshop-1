@@ -41,10 +41,12 @@ let macbook = {
     }
 }
 
+// We can even assign variables with the values of previous elements
 let input = process.stdin
 
-
 let resAdd = myValue + otherValue
+
+console.log('\n\n////Variable outputs\\\\\\\\\n\n')
 
 console.log(resAdd)                 // Add
 console.log(myValue * otherValue)   // Multiply
@@ -56,17 +58,23 @@ console.log(message)
 console.log(formattedMessage)
 console.log('The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues.\nThe 20 meter pacer test will begin in 30 seconds.\nLine up at the start.\nThe running speed starts slowly, but gets faster each minute after you hear this signal.[beep]\nA single lap should be completed each time you hear this sound. [ding]\nRemember to run in a straight line, and run as long as possible.\nThe second time you fail to complete a lap before the sound, your test is over.\nThe test will begin on the word start. On your mark, get ready, start.')
 
-console.log('\n\n////Conditional checks////\n\n')
+console.log('\n\n////Conditional checks\\\\\\\\\n\n')
 
 // Checking if one value is greater than the other
 if (resAdd > myValue) {
     console.log('resAdd is greater than ' + myValue)
 }
 
-if (isTrue) {
+console.log('')
+
+// Checking if isTrue is equal to true AND myValue is greater than 0
+if (isTrue && myValue >= 0) {
     console.log('I got logged, so I must be true')
 }
 
+console.log('')
+
+// Inequality check
 if (isTrue !== isFalse) {
     console.log('True is not equal to false!')
 }
@@ -109,12 +117,35 @@ function multiply (val1, val2) {
 
 // Let's add a new function to our object
 macbook.chuhching = function () {
-    
     // we are inside the macbook object, meaning we can use it's own variables/properties
-
     return `♪ Chuh-ching, chuh-ching, I'm worth ${this.price} and much more! ♪`
-
 }
+
+// Setting an event listener for stdin 'data' events
+// This will be called every time we get new input data
+/**
+ * **Execution** - Checks whether or not to close the program.
+ * **Variable** - The data provided by the user.
+ * **Encapsulating** - At no point do we use external properties,
+ *      meaning this can be used in other scenarios and require little change to the source which is good design in itself.
+ * **Named** - The event is named 'data'.
+ * **Trigger** - When the user inputs a string.
+ */
+input.on('data', function (data) {
+
+    // Getting our data and removing white-space
+    let userInput = data.trim()
+
+    // User input exit.
+    if(userInput === 'exit') {
+        // Program exit.
+        console.log("User input complete, program exit.");
+        process.exit();
+    } else {
+        // Print user input in console.
+        console.log(`User Input Data : ${data}`);
+    }
+});
 
 // Let's set up a promised variable that will be set 5 seconds after we call it
 let promisedAmount = delayedResponse(5000)
@@ -132,23 +163,6 @@ setTimeout(function () {
 // By calling this method, we can see this in action for ourselves.
 console.log( macbook.chuhching() )
 
-// Setting an event listener for stdin 'data' events
-// This will be called every time we get new input data
-input.on('data', function (data) {
-
-    // Getting our data and removing white-space
-    let userInput = data.trim()
-
-    // User input exit.
-    if(userInput === 'exit') {
-        // Program exit.
-        console.log("User input complete, program exit.");
-        process.exit();
-    } else {
-        // Print user input in console.
-        console.log(`User Input Data : ${data}`);
-    }
-});
 
 /**
  * We'll create a new promise that returns a value a few seconds later.
