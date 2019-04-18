@@ -5,6 +5,8 @@
 // courtesy of NodeJS
 /////////////////////////////
 
+// #region Variable declarations /////////////////
+
 // My primitive variables
 let myValue = 19
 let otherValue = 4
@@ -46,6 +48,10 @@ let input = process.stdin
 
 let resAdd = myValue + otherValue
 
+//#endregion
+
+// #region Logging to the console ////////////////
+
 console.log('\n\n////Variable outputs\\\\\\\\\n\n')
 
 console.log(resAdd)                 // Add
@@ -58,7 +64,11 @@ console.log(message)
 console.log(formattedMessage)
 console.log('The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues.\nThe 20 meter pacer test will begin in 30 seconds.\nLine up at the start.\nThe running speed starts slowly, but gets faster each minute after you hear this signal.[beep]\nA single lap should be completed each time you hear this sound. [ding]\nRemember to run in a straight line, and run as long as possible.\nThe second time you fail to complete a lap before the sound, your test is over.\nThe test will begin on the word start. On your mark, get ready, start.')
 
-console.log('\n\n////Conditional checks\\\\\\\\\n\n')
+console.log('\n')
+
+// #endregion
+
+// #region Conditional flow //////////////////////
 
 // Checking if one value is greater than the other
 if (resAdd > myValue) {
@@ -85,6 +95,10 @@ if ((2 + 2) === 3) { console.log('*chuckles* I\'m a Math-man') }
 
 console.log('\n')
 
+// #endregion
+
+// #region Iterative flow ////////////////////////
+
 // For loops
 // Conditional iteration
 for (let i = 0; i < 15; i++) {
@@ -100,14 +114,21 @@ for (let elm of arrayOfStrs) {
 
 console.log('\n')
 
+// #endregion
+
+// #region Logging complex objects ///////////////
+
+console.log('\n')
+
 // Printing complex objects
 console.dir(trailMix)
 console.log('\n')
 console.dir(macbook)
 console.log('\n')
-console.log(multiply)
-console.log(multiply(2, 2))
-console.log('\n')
+
+// #endregion
+
+// #region Functions /////////////////////////////
 
 // We're defining a function which we can use 
 function multiply (val1, val2) {
@@ -115,11 +136,49 @@ function multiply (val1, val2) {
     return returnValue
 }
 
+console.log(multiply)
+console.log(multiply(2, 2))
+
 // Let's add a new function to our object
 macbook.chuhching = function () {
     // we are inside the macbook object, meaning we can use it's own variables/properties
     return `♪ Chuh-ching, chuh-ching, I'm worth ${this.price} and much more! ♪`
 }
+
+// By calling this method, we can see this in action for ourselves.
+console.log( macbook.chuhching() )
+
+// #endregion
+
+// #region Class objects /////////////////////////
+
+/**
+ * A class acts like a mould for defining like-propertied objects.
+ *
+ * @class TempClass
+ */
+class TempClass {
+
+    
+    constructor(param1) {
+
+        this.prop1 = 15
+        this.prop2 = 30
+        this.initProp2 = 'NewProperty'
+    }
+
+    testFunc() {
+        this.prop2++
+    }
+
+}
+
+let newCls = new TempClass()
+newCls.testFunc()
+
+// #endregion
+
+// #region Events and listeners //////////////////
 
 // Setting an event listener for stdin 'data' events
 // This will be called every time we get new input data
@@ -131,10 +190,13 @@ macbook.chuhching = function () {
  * **Named** - The event is named 'data'.
  * **Trigger** - When the user inputs a string.
  */
-input.on('data', function (data) {
+input.on('data', handleInput);
+
+function handleInput(data) {
 
     // Getting our data and removing white-space
-    let userInput = data.trim()
+    // let userInput = data.trim()
+    let userInput = data.toString().trim()
 
     // User input exit.
     if(userInput === 'exit') {
@@ -145,7 +207,11 @@ input.on('data', function (data) {
         // Print user input in console.
         console.log(`User Input Data : ${data}`);
     }
-});
+}
+
+// #endregion
+
+// #region Promises //////////////////////////////
 
 // Let's set up a promised variable that will be set 5 seconds after we call it
 let promisedAmount = delayedResponse(5000)
@@ -159,10 +225,6 @@ setTimeout(function () {
 setTimeout(function () {
     console.log(promisedAmount)
 }, 6500)
-
-// By calling this method, we can see this in action for ourselves.
-console.log( macbook.chuhching() )
-
 
 /**
  * We'll create a new promise that returns a value a few seconds later.
@@ -187,3 +249,5 @@ function delayedResponse(time) {
         return returned
     })
 }
+
+// #endregion
