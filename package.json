@@ -1,0 +1,31 @@
+{
+  "name": "qa-workshop-1",
+  "version": "1.0.0",
+  "description": "This codebase contains example code for use in demonstrations for the qa workshops being undertaken.",
+  "main": "index.js",
+  "files": [
+	"index.js"
+  ],
+  "scripts": {
+	"start": "node ./index.js",
+    "main": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zach128/nrqa-workshop.git"
+  },
+  "keywords": [
+    "workshop"
+  ],
+  "author": "Zachary Cauchi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zach128/nrqa-workshop/issues"
+  },
+  "homepage": "https://github.com/Zach128/nrqa-workshop#readme",
+	
+  "engines": {
+    "node": ">=4"
+  }
+	
+}
