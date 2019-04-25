@@ -4,10 +4,11 @@
   "description": "This codebase contains example code for use in demonstrations for the qa workshops being undertaken.",
   "main": "index.js",
   "files": [
-	"index.js"
+    "index.js"
   ],
   "scripts": {
-	"start": "node ./index.js",
+    "start": "node ./index.js",
+    "cy:open": "cypress open",
     "main": "node ./index.js"
   },
   "repository": {
@@ -23,9 +24,10 @@
     "url": "https://github.com/Zach128/nrqa-workshop/issues"
   },
   "homepage": "https://github.com/Zach128/nrqa-workshop#readme",
-	
   "engines": {
     "node": ">=4"
+  },
+  "dependencies": {
+    "cypress": "^3.2.0"
   }
-	
 }
