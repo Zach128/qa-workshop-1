@@ -23,3 +23,13 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('ping', (address) => {
+    return cy.task('ping', address).then((results) => {
+        // Get starting point of average duration
+        const avgBegins = results.indexOf('Average = ') + 10
+
+        // Return average duration as a number
+        return parseInt(results.substring(avgBegins, results.indexOf('ms', avgBegins)))
+    })
+})
